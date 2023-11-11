@@ -1,11 +1,6 @@
 package main
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-	"strings"
-)
+import "fmt"
 
 //	func main() {
 //		fmt.Println("Munish Kumar")
@@ -185,41 +180,49 @@ func main() {
 
 	// struct study
 
-	type menuItem struct {
-		name   string
-		prices map[string]float64
-	}
+	// 	type menuItem struct {
+	// 		name   string
+	// 		prices map[string]float64
+	// 	}
 
-	menu := []menuItem{
-		{name: "coffee", prices: map[string]float64{"small": 10.0, "medium": 25.0, "large": 50.0}},
-		{name: "Espresso", prices: map[string]float64{"small": 30.0, "medium": 60.0, "large": 100.0}},
-	}
+	// 	menu := []menuItem{
+	// 		{name: "coffee", prices: map[string]float64{"small": 10.0, "medium": 25.0, "large": 50.0}},
+	// 		{name: "Espresso", prices: map[string]float64{"small": 30.0, "medium": 60.0, "large": 100.0}},
+	// 	}
 
-	in := bufio.NewReader(os.Stdin)
-	choice, _ := in.ReadString('\n')
+	// 	in := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Please enter an option: ")
-	fmt.Println("1) Print Menu")
-	fmt.Println("2) Add item to menu")
-	fmt.Println("q) Quit! ")
+	// loop:
+	// 	for {
+	// 		fmt.Println("Please enter an option: ")
+	// 		fmt.Println("1) Print Menu")
+	// 		fmt.Println("2) Add item to menu")
+	// 		fmt.Println("q) Quit! ")
 
-	switch strings.TrimSpace(choice) {
-	case "1":
+	// 		choice, _ := in.ReadString('\n')
 
-		for _, item := range menu {
+	// 		switch strings.TrimSpace(choice) {
+	// 		case "1":
 
-			fmt.Println(item.name)
-			fmt.Println(strings.Repeat("-", 10))
-			for size, price := range item.prices {
+	// 			for _, item := range menu {
 
-				fmt.Printf("\t%10s%10.2f\n", size, price)
-			}
-		}
-	case "2":
+	// 				fmt.Println(item.name)
+	// 				fmt.Println(strings.Repeat("-", 10))
+	// 				for size, price := range item.prices {
 
-	}
-
-	// fmt.Println(choice)
+	// 					fmt.Printf("\t%10s%10.2f\n", size, price)
+	// 				}
+	// 			}
+	// 		case "2":
+	// 			fmt.Println("Please enter the name of new item.")
+	// 			name, _ := in.ReadString('\n')
+	// 			menu = append(menu, menuItem{name: name, prices: make(map[string]float64)})
+	// 		case "q":
+	// 			break loop
+	// 		default:
+	// 			fmt.Println("Unknown option")
+	// 		}
+	// 	}
 
 	// fmt.Println(menu)
 
@@ -263,7 +266,38 @@ func main() {
 	// 	fmt.Println("default case")
 	// }
 
+	// defer function
+	// fmt.Println("Hwy1")
+
+	// defer fmt.Println("last1")
+	// fmt.Println("hwy2")
+	// defer fmt.Println("last2")
+	// fmt.Println(choice)
+
+	// panic and recover
+
+	// fmt.Println("main1")
+	// fmt.Println("main2")
+	// func1()
+	// fmt.Println("Hello reached end of line")
+
+	name, otherName := "Munish", "Muni"
+	fmt.Println(name)
+	fmt.Println(otherName)
+	myFunc(name, &otherName)
+	fmt.Println(name)
+	fmt.Println(otherName)
+
 }
+
+// func func1() {
+// 	defer func() {
+// 		fmt.Println(recover())
+// 	}()
+// 	fmt.Println("func1")
+// 	panic("program crashed")
+// 	// fmt.Println("Program running nicely")
+// }
 
 // func Handler(w http.ResponseWriter, r *http.Request) {
 
@@ -271,3 +305,8 @@ func main() {
 // 	io.Copy(w, f)
 
 // }
+
+func myFunc(name string, otherName *string) {
+	name = "Ashish"
+	*otherName = "Shunu"
+}
