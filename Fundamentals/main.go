@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 //	func main() {
 //		fmt.Println("Munish Kumar")
@@ -180,49 +185,49 @@ func main() {
 
 	// struct study
 
-	// 	type menuItem struct {
-	// 		name   string
-	// 		prices map[string]float64
-	// 	}
+	type menuItem struct {
+		name   string
+		prices map[string]float64
+	}
 
-	// 	menu := []menuItem{
-	// 		{name: "coffee", prices: map[string]float64{"small": 10.0, "medium": 25.0, "large": 50.0}},
-	// 		{name: "Espresso", prices: map[string]float64{"small": 30.0, "medium": 60.0, "large": 100.0}},
-	// 	}
+	menu := []menuItem{
+		{name: "coffee", prices: map[string]float64{"small": 10.0, "medium": 25.0, "large": 50.0}},
+		{name: "Espresso", prices: map[string]float64{"small": 30.0, "medium": 60.0, "large": 100.0}},
+	}
 
-	// 	in := bufio.NewReader(os.Stdin)
+	in := bufio.NewReader(os.Stdin)
 
-	// loop:
-	// 	for {
-	// 		fmt.Println("Please enter an option: ")
-	// 		fmt.Println("1) Print Menu")
-	// 		fmt.Println("2) Add item to menu")
-	// 		fmt.Println("q) Quit! ")
+loop:
+	for {
+		fmt.Println("Please enter an option: ")
+		fmt.Println("1) Print Menu")
+		fmt.Println("2) Add item to menu")
+		fmt.Println("q) Quit! ")
 
-	// 		choice, _ := in.ReadString('\n')
+		choice, _ := in.ReadString('\n')
 
-	// 		switch strings.TrimSpace(choice) {
-	// 		case "1":
+		switch strings.TrimSpace(choice) {
+		case "1":
 
-	// 			for _, item := range menu {
+			for _, item := range menu {
 
-	// 				fmt.Println(item.name)
-	// 				fmt.Println(strings.Repeat("-", 10))
-	// 				for size, price := range item.prices {
+				fmt.Println(item.name)
+				fmt.Println(strings.Repeat("-", 10))
+				for size, price := range item.prices {
 
-	// 					fmt.Printf("\t%10s%10.2f\n", size, price)
-	// 				}
-	// 			}
-	// 		case "2":
-	// 			fmt.Println("Please enter the name of new item.")
-	// 			name, _ := in.ReadString('\n')
-	// 			menu = append(menu, menuItem{name: name, prices: make(map[string]float64)})
-	// 		case "q":
-	// 			break loop
-	// 		default:
-	// 			fmt.Println("Unknown option")
-	// 		}
-	// 	}
+					fmt.Printf("\t%10s%10.2f\n", size, price)
+				}
+			}
+		case "2":
+			fmt.Println("Please enter the name of new item.")
+			name, _ := in.ReadString('\n')
+			menu = append(menu, menuItem{name: name, prices: make(map[string]float64)})
+		case "q":
+			break loop
+		default:
+			fmt.Println("Unknown option")
+		}
+	}
 
 	// fmt.Println(menu)
 
@@ -281,12 +286,12 @@ func main() {
 	// func1()
 	// fmt.Println("Hello reached end of line")
 
-	name, otherName := "Munish", "Muni"
-	fmt.Println(name)
-	fmt.Println(otherName)
-	myFunc(name, &otherName)
-	fmt.Println(name)
-	fmt.Println(otherName)
+	// name, otherName := "Munish", "Muni"
+	// fmt.Println(name)
+	// fmt.Println(otherName)
+	// myFunc(name, &otherName)
+	// fmt.Println(name)
+	// fmt.Println(otherName)
 
 }
 
@@ -306,7 +311,7 @@ func main() {
 
 // }
 
-func myFunc(name string, otherName *string) {
-	name = "Ashish"
-	*otherName = "Shunu"
-}
+// func myFunc(name string, otherName *string) {
+// 	name = "Ashish"
+// 	*otherName = "Shunu"
+// }
