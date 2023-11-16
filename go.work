@@ -6,4 +6,5 @@ use (
 	./LearningPackages
 	./Programs
 	./Go-Practice
+	./Generics
 )
