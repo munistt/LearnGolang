@@ -2,8 +2,8 @@ package main
 
 import (
 	"bufio"
-	"demo/menu"
 	"fmt"
+	"mymenuapp/menu"
 	"os"
 	"strings"
 )
